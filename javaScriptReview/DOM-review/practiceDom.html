@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use addEventListener</title>
+</head>
+<body>
+    <!-- First, set up the tags on the page -->
+    <!-- first we have an element that will appear on load and then change. Give it an ID to reference in the funxn -->
+    <p id="main-text"> This is the text we're going to change.</p>
+    <!-- We also add a button, to which we will add an event listener later. Give it an ID to reference in the event listener -->
+    <button id="clickable">Clickable</button>
+
+    <!-- The following funxn will simlpy change the innerHTML of the tag in question -->
+   <script >
+       let changeMainText=()=>{
+           document.getElementById("main-text").innerHTML = "you done clicked it"; //this is a simple reassignment of the value of the text in the HTML tag
+           console.log("it done been clicked");//this is simply to see that the function worked if nothing shows on the page
+        
+       }
+
+       let button=document.getElementById("clickable"); //give the button a reference value
+       button.addEventListener("click", changeMainText); //reference that value
+
+   </script>

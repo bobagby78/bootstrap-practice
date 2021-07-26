@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use addEventListener</title>
+</head>
+<body>
+   <!-- first, set up the tags on the page... -->
+    <h3>Let's roll for some Ability Scores</h3>
+    <p id = "ability-scores">Click the button to roll</p>
+
+    <button id = "clickable2">Roll</button>
+
+  
+    <script>
+        let abilityScoreRoll=()=>{
+
+            let finalRolls = '' ;
+            for(let j = 0; j < 6; j ++){                                    //do the following 6 times...
+
+                    let rolls = [];                                         //set up variables to catch the important values
+                    let sumRolls = 0;
+
+                    for(let i = 0; i < 4; i ++){                            //do the following 4 times
+                        let nextRoll = (Math.ceil(Math.random() * 6))       //roll a d6
+                        if (nextRoll <= rolls[0]){                          //if the nextRoll is < the previous roll...
+                            rolls.unshift(nextRoll);                        //put nextRoll in front.
+                        }else rolls.push(nextRoll)                          //otherwise put it in the back
+                
+                        
+                        }
+                
+                        rolls.shift();                                      //get rid of the first position roll (the lowest roll)
+                
+                
+                        
+                        for(let i = 0; i < rolls.length; i ++){             //loop over the array of roll values
+                            sumRolls += rolls[i]                            //add them together in the variable sumRolls
+                        
+                    }
+                    finalRolls += sumRolls + ' * '                          //take the sumRolls added values and drop them in an array
+                }
+                return finalRolls                                           // setAbilityScores output is the array of rolling 4d6, dropping the lowest d6 and summing the remaining values
+            }
+
+            newRolls = abilityScoreRoll();                                   //create a variable for the above function
+            console.log(newRolls);  
+            let setAbilityScores = ()=>{                                                              //make sure it works by logging it to the console
+                document.getElementById("ability-scores").innerHTML = newRolls; 
+            }
+        let button2=document.getElementById("clickable2");                  //give the button a reference value
+        button2.addEventListener("click", setAbilityScores);                 //reference that value
+    </script>
+    
+
+</body>
+</html>
