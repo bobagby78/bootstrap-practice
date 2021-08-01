@@ -1,0 +1,21 @@
+<div class="row">
+    Click the die to roll for ability scores
+    <p>    <img onclick=window.console.log("hey") id="abilityRoll" style="height: 50px" src="https://i.pinimg.com/originals/26/49/de/2649defe625da3bb301529b2d39e763b.png" alt="nerd dice">    </p>
+    <!--TODO: add dice ability roll functionality-->
+    <p id="ap-values">Click the die to roll for ability scores</p>
+   
+    <script src="abilityScoreRoll.js"></script>
+
+    <script>
+        let fireAbilityScoreEvent = ()=>{
+            return ${`                
+                    let pseudoButton=document.getElementById('abilityRoll'); 
+                    pseudoButton.addEventListener('click', document.getElementById('ap-values').innerHTML= abilityScoreRoll())`};
+
+        }
+
+        let pseudoButton=document.getElementById("abilityRoll");
+        pseudoButton.addEventListener("click", fireAbilityScoreEvent())
+    </script>
+
+</div>

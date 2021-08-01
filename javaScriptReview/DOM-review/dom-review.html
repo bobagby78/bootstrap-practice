@@ -17,7 +17,7 @@
     <script>
         let abilityScoreRoll=()=>{
 
-            let finalRolls = '' ;
+        let finalRolls = [];
             for(let j = 0; j < 6; j ++){                                    //do the following 6 times...
 
                     let rolls = [];                                         //set up variables to catch the important values
@@ -29,25 +29,23 @@
                             rolls.unshift(nextRoll);                        //put nextRoll in front.
                         }else rolls.push(nextRoll)                          //otherwise put it in the back
                 
-                        
                         }
                 
                         rolls.shift();                                      //get rid of the first position roll (the lowest roll)
-                
-                
-                        
+                                                    
                         for(let i = 0; i < rolls.length; i ++){             //loop over the array of roll values
                             sumRolls += rolls[i]                            //add them together in the variable sumRolls
                         
                     }
-                    finalRolls += sumRolls + ' * '                          //take the sumRolls added values and drop them in an array
+                    finalRolls.push(sumRolls)                         //take the sumRolls added values and drop them in an array
                 }
                 return finalRolls                                           // setAbilityScores output is the array of rolling 4d6, dropping the lowest d6 and summing the remaining values
             }
 
-            newRolls = abilityScoreRoll();                                   //create a variable for the above function
-            console.log(newRolls);  
-            let setAbilityScores = ()=>{                                                              //make sure it works by logging it to the console
+             
+            let setAbilityScores = ()=>{       
+                newRolls = abilityScoreRoll();                                   //create a variable for the above function
+            console.log(newRolls);                                                        //make sure it works by logging it to the console
                 document.getElementById("ability-scores").innerHTML = newRolls; 
             }
         let button2=document.getElementById("clickable2");                  //give the button a reference value
